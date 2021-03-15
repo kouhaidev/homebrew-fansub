@@ -1,7 +1,7 @@
 class Svg2ass < Formula
   desc "Convert SVG vector graphics to ASS subtitle draw instructions"
   homepage "https://github.com/irrwahn/svg2ass"
-  url "https://github.com/irrwahn/svg2ass/tarball/53be678a5be24d690b421bce5f1e345ae960077c"
+  url "https://github.com/irrwahn/svg2ass/archive/53be678a5be24d690b421bce5f1e345ae960077c.tar.gz"
   version "0.0.20210221"
   sha256 "78ba8796bb56d7c31d4b80623650c36a0c64fff64c5f9bfc67147f14b94a3b7e"
   license "BSD-3-Clause"
@@ -16,8 +16,8 @@ class Svg2ass < Formula
     bin.install "svg2ass"
 
     # Default completions timeout
-    File.write('svg2ass.fish', 'complete -c svg2ass -e')
-    fish_completion.install 'svg2ass.fish'
+    File.write("svg2ass.fish", "complete -c svg2ass -e")
+    fish_completion.install "svg2ass.fish"
   end
 
   test do
@@ -31,7 +31,7 @@ class Svg2ass < Formula
       </svg>
     EOF
     (testpath/"test.svg").write(example)
-    expected = 'Dialogue:'
+    expected = "Dialogue:"
     assert_match expected, shell_output("#{bin}/svg2ass #{testpath/"test.svg"}")
   end
 end
